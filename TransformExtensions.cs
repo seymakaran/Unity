@@ -22,6 +22,22 @@ namespace Karan.Util.Extensions
                 case PositionDirection2D.Left :
                     pos.x -= posX;
                     break;
+                case PositionDirection2D.RightAndUp :
+                    pos.x += posX;
+                    pos.y += posY;
+                    break;
+                case PositionDirection2D.RightAndDown :
+                    pos.x += posX;
+                    pos.y -= posY;
+                    break;
+                case PositionDirection2D.LeftAndUp :
+                    pos.x -= posX;
+                    pos.y += posY;
+                    break;
+                case PositionDirection2D.LeftAndDown :
+                    pos.x -= posX;
+                    pos.y -= posY;
+                    break;
             }
 
             mb.transform.localPosition = pos;
