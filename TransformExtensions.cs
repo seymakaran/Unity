@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Karan.Util.Extensions
 {
-    public static class TransformExtensions 
+    public static class TransformExtensions
     {
-        public static void MovePosition2D(this MonoBehaviour mb, PositionDirection2D direction, float posX, float posY)
+        private static void MovePosition2D(Transform transform, PositionDirection2D direction, float posX, float posY)
         {
-            var pos = mb.transform.position;
+            var pos = transform.position;
 
             switch (direction)
             {
@@ -40,8 +40,14 @@ namespace Karan.Util.Extensions
                     break;
             }
 
-            mb.transform.localPosition = pos;
+            transform.position = pos;
         }
+        
+        public static void MovePosition2D(this GameObject go, PositionDirection2D direction, float posX, float posY) =>
+            MovePosition2D(go.transform, direction, posX, posY); 
+        
+        public static void MovePosition2D(this MonoBehaviour mb, PositionDirection2D direction, float posX, float posY) =>
+            MovePosition2D(mb.transform, direction, posX, posY); 
 
         public static void Whirl2D(this MonoBehaviour mb, Rotate2D rotate, float speed)
         {
