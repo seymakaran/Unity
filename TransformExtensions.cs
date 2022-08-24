@@ -4,6 +4,25 @@ namespace Karan.Util.Extensions
 {
     public static class TransformExtensions
     {
+	public static void MovePosition2D(this GameObject go, PositionDirection2D dir, float speed)
+        {
+            switch (dir)
+            {
+                case PositionDirection2D.Right :
+                    go.transform.Translate(go.transform.right * speed);
+                    break;
+                case PositionDirection2D.Left :
+                    go.transform.Translate(go.transform.right * (speed * -1));
+                    break;
+                case PositionDirection2D.Up :
+                    go.transform.Translate(go.transform.up * speed);
+                    break;
+                case PositionDirection2D.Down :
+                    go.transform.Translate(go.transform.up * (speed * -1));
+                    break;
+            }
+        }
+
         private static void MovePosition2D(Transform transform, PositionDirection2D direction, float posX, float posY)
         {
             var pos = transform.position;
