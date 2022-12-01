@@ -16,21 +16,20 @@ public class SpriteAnimation : MonoBehaviour
     
     private IEnumerator startSpriteAnimation()
     {
-        while (true)
+        Color c = m_spriteRenderer.material.color;
+        for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
         {
-            Color c = m_spriteRenderer.material.color;
-            for (float alpha = 1f; alpha >= 0; alpha -= 0.1f)
-            {
-                float r = Random.Range(0f, 1f);
-                float g = Random.Range(0f, 1f);
-                float b = Random.Range(0f, 1f);
-                c.r = r;
-                c.g = g;
-                c.b = b;
-                c.a = alpha;
-                m_spriteRenderer.material.color = c;
-                yield return new WaitForSeconds(1);
-            }
+            if (alpha >= 0)
+                alpha = 1f;
+            float r = Random.Range(0f, 1f);
+            float g = Random.Range(0f, 1f);
+            float b = Random.Range(0f, 1f);
+            c.r = r;
+            c.g = g;
+            c.b = b;
+            c.a = alpha;
+            m_spriteRenderer.material.color = c;
+            yield return new WaitForSeconds(1);
         }
     }
 
