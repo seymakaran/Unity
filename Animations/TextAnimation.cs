@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class EntryAnimation : MonoBehaviour
+public class TextAnimation : MonoBehaviour
 {
     private TextMeshPro m_textMeshPro;
     private Coroutine m_coroutine;
